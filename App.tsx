@@ -4,9 +4,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { HomeFeaturesSection } from './components/HomeFeaturesSection';
+import { Navbar } from "./Navbar";
+import { HeroSection } from "./HeroSection";
+import { HomeFeaturesSection } from "./HomeFeaturesSection";
 import { TournamentsPage } from './components/TournamentsPage';
 import { GamePage } from './components/GamePage';
 import { Footer } from './components/Footer';
