@@ -1,0 +1,6 @@
+{
+  "name": "Gaming Tournament",
+  "description": "Professional dark esports tournament platform featuring guest browsing, user authentication, tournament creation, team management, and verified leaderboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
