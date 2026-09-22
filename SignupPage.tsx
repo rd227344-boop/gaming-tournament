@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserPlus, ArrowLeft, Swords, Shield, AlertCircle, CheckCircle2, Gamepad2, Globe, Users, Trophy } from 'lucide-react';
 import { User as UserType } from '../types';
-import { api } from '../services/api';
+import { api } from "./api";
 
 interface SignupPageProps {
   onSuccess: (user: UserType) => void;
