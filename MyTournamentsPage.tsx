@@ -23,8 +23,8 @@ import {
   ArrowLeft
 } from 'lucide-react';
 import { TournamentItem, User } from '../types';
-import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from '../utils/exportUtils';
-import { api } from '../services/api';
+import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from "./exportUtils";
+import { api } from "./api";
 import { EditTournamentModal } from './EditTournamentModal';
 
 interface MyTournamentsPageProps {
