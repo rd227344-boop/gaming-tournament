@@ -13,7 +13,7 @@ function getStored<T>(key: string, fallback: T): T {
     return JSON.parse(raw) as T;
   } catch {
     return fallback;
-  }
+  } Sa
 }
 
 function setStored<T>(key: string, data: T): void {
