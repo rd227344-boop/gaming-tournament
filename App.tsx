@@ -2,26 +2,27 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-
 import React, { useState, useEffect } from 'react';
+
 import { Navbar } from "./Navbar";
 import { HeroSection } from "./HeroSection";
 import { HomeFeaturesSection } from "./HomeFeaturesSection";
-import { TournamentsPage } from './components/TournamentsPage';
-import { GamePage } from './components/GamePage';
-import { Footer } from './components/Footer';
-import { CreateTournamentModal } from './components/CreateTournamentModal';
-import { JoinTournamentModal } from './components/JoinTournamentModal';
-import { TournamentDetailsModal } from './components/TournamentDetailsModal';
-import { AuthNoticeModal } from './components/AuthNoticeModal';
-import { LoginPage } from './components/LoginPage';
-import { SignupPage } from './components/SignupPage';
-import { MyTournamentsPage } from './components/MyTournamentsPage';
+import { TournamentsPage } from './TournamentsPage';
+import { GamePage } from './GamePage';
+import { Footer } from './Footer';
+import { CreateTournamentModal } from './CreateTournamentModal';
+import { JoinTournamentModal } from './JoinTournamentModal';
+import { TournamentDetailsModal } from './TournamentDetailsModal';
+import { AuthNoticeModal } from './AuthNoticeModal';
+import { LoginPage } from './LoginPage';
+import { SignupPage } from './SignupPage';
+import { MyTournamentsPage } from './MyTournamentsPage';
 
-import { INITIAL_TOURNAMENTS } from './data/tournamentData';
-import { COMPETITIVE_GAMES, getGameById } from './data/gamesData';
+import { INITIAL_TOURNAMENTS } from './tournamentData';
+import { COMPETITIVE_GAMES, getGameById } from './gamesData';
 import { TournamentItem, User } from './types';
-import { api } from './services/api';
+import { api } from './api';
+
 import { CheckCircle2 } from 'lucide-react';
 
 export default function App() {
