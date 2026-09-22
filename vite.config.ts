@@ -17,6 +17,7 @@ export default defineConfig(() => {
 
   // Disable file watching when DISABLE_HMR is true.
   watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      allowedHosts: ['gaming-tournament-7gkm.onrender.com'],
 
   // Allow Render host
   allowedHosts: ['gaming-tournament-7gkm.onrender.com'],
