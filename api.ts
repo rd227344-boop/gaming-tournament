@@ -1,5 +1,5 @@
 import { User, TournamentItem, Team, LeaderboardEntry, TeamMember } from '../types';
-import { INITIAL_TOURNAMENTS, INITIAL_TEAMS, INITIAL_LEADERBOARD, DEMO_USERS } from '../data/tournamentData';
+import { INITIAL_TOURNAMENTS, INITIAL_TEAMS, INITIAL_LEADERBOARD, DEMO_USERS } from "./tournamentData";
 
 const AUTH_STORAGE_KEY = 'mgt_current_user_session';
 const TOURNAMENTS_STORAGE_KEY = 'mgt_tournaments_data';
