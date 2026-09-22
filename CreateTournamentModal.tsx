@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PointTableStyleConfig, TournamentItem, User } from '../types';
+import { PointTableStyleConfig, TournamentItem, User } from './types';
 import {
   X,
   PlusCircle,
@@ -31,16 +31,16 @@ import {
   CheckCircle2,
   Loader2
 } from 'lucide-react';
-import { COMPETITIVE_GAMES, getGameById } from '../data/gamesData';
+import { COMPETITIVE_GAMES, getGameById } from './gamesData';
 import {
   formatKillsForDisplay,
   getDefaultStyleConfig,
   getPlacementPoints,
   sanitizeKillsInput
-} from '../utils/tournamentUtils';
-import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from '../utils/exportUtils';
+} from './tournamentUtils';
+  import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from './exportUtils';
 import { StyleGalleryModal } from './StyleGalleryModal';
-import { api } from '../services/api';
+import { api } from './api';
 
 interface CreateTournamentModalProps {
   isOpen: boolean;
