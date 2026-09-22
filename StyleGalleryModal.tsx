@@ -11,7 +11,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { PointTableStyleConfig, PointTableRowData, TableStyleTheme } from '../types';
-import { AVAILABLE_TABLE_STYLES, GALLERY_BACKGROUND_PRESETS, getPlacementPoints } from '../utils/tournamentUtils';
+import { AVAILABLE_TABLE_STYLES, GALLERY_BACKGROUND_PRESETS, getPlacementPoints } from "./tournamentUtils"
 
 interface StyleGalleryModalProps {
   isOpen: boolean;
