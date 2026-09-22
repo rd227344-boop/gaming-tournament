@@ -33,7 +33,9 @@ export const TournamentDetailsModal: React.FC<TournamentDetailsModalProps> = ({
   onRegisterClick,
   onPromptAuth,
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'rules' | 'squads' | 'prizes'>('overview');
+  const [activeTab, setActiveTab] = useState<
+  'overview' | 'rules' | 'squads' | 'prizes' | 'pointTable'
+>('overview');
   const [copied, setCopied] = useState(false);
 
   if (!isOpen || !tournament) return null;
@@ -177,7 +179,19 @@ export const TournamentDetailsModal: React.FC<TournamentDetailsModalProps> = ({
           >
             Prizes
           </button>
-        </div>
+        <button
+          onClick={() => setActiveTab('pointTable')}
+          className={`py-3 px-3 text-xs sm:text-sm font-bold font-['Chakra_Petch'] uppercase tracking-wider transition-colors border-b-2 cursor-pointer ${
+            activeTab === 'pointTable'
+              ? 'border-emerald-500 text-emerald-400'
+              : 'border-transparent text-slate-400 hover:text-slate-200'
+          }`}
+        >
+          Point Table
+        </button>
+      </div>
+
+      {/* Tab Content Body */}
 
         {/* Tab Content Body */}
         <div className="p-4 sm:p-6 max-h-[50vh] overflow-y-auto space-y-4">
