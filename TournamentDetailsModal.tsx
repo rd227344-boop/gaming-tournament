@@ -420,7 +420,6 @@ export const TournamentDetailsModal: React.FC<TournamentDetailsModalProps> = ({
               )}
             </div>
           )}
-          )}
         </div>
 
         {/* Footer Registration / Permission Controls */}
