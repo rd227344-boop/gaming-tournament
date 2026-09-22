@@ -15,13 +15,13 @@ import {
   Trophy,
   Loader2
 } from 'lucide-react';
-import { PointTableStyleConfig, PointTableRowData, TournamentItem, User } from '../types';
+import { PointTableStyleConfig, PointTableRowData, TournamentItem, User } from './types';
 import {
   formatKillsForDisplay,
   getPlacementPoints,
   sanitizeKillsInput,
   getDefaultStyleConfig
-} from '../utils/tournamentUtils';
+} from './tournamentUtils';
 import { PointTableStyleConfig, PointTableRowData, TournamentItem, User } from './types';
 import {
   formatKillsForDisplay,
