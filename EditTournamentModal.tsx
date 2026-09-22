@@ -22,9 +22,16 @@ import {
   sanitizeKillsInput,
   getDefaultStyleConfig
 } from '../utils/tournamentUtils';
-import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from '../utils/exportUtils';
+import { PointTableStyleConfig, PointTableRowData, TournamentItem, User } from './types';
+import {
+  formatKillsForDisplay,
+  getPlacementPoints,
+  sanitizeKillsInput,
+  getDefaultStyleConfig
+} from './tournamentUtils';
+import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from './exportUtils';
 import { StyleGalleryModal } from './StyleGalleryModal';
-import { COMPETITIVE_GAMES } from '../data/gamesData';
+import { COMPETITIVE_GAMES } from './gamesData';
 
 interface EditTournamentModalProps {
   isOpen: boolean;
