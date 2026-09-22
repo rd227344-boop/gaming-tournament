@@ -501,4 +501,7 @@ export const EditTournamentModal: React.FC<EditTournamentModalProps> = ({
                     </thead>
                     <tbody className="divide-y divide-slate-800/60">
                       {rows.map((row) => {
-                        const placePts = row.placePoints !== unde
+                        const placePts =
+  row.placePoints !== undefined
+    ? row.placePoints
+    : getPlacementPoints(row.rank, game);
