@@ -337,6 +337,89 @@ export const TournamentDetailsModal: React.FC<TournamentDetailsModalProps> = ({
                 </div>
               </div>
             </div>
+                  {activeTab === 'pointTable' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-white">
+                    Point Table
+                  </h4>
+
+                  <p className="text-xs text-slate-400 mt-1">
+                    {tournament.pointTable?.matchTitle || 'Tournament Standings'}
+                  </p>
+                </div>
+
+                <Trophy className="w-5 h-5 text-amber-400" />
+              </div>
+
+              {tournament.pointTable?.rows &&
+              tournament.pointTable.rows.length > 0 ? (
+                <div className="overflow-x-auto rounded-xl border border-slate-700">
+                  <table className="w-full min-w-[620px] text-sm">
+                    <thead className="bg-slate-900">
+                      <tr className="text-xs uppercase tracking-wider text-slate-400">
+                        <th className="px-3 py-3 text-left">Rank</th>
+                        <th className="px-3 py-3 text-left">Team</th>
+                        <th className="px-3 py-3 text-center">Place</th>
+                        <th className="px-3 py-3 text-center">Kills</th>
+                        <th className="px-3 py-3 text-center">Total</th>
+                      </tr>
+                    </thead>
+
+                    <tbody className="divide-y divide-slate-800">
+                      {tournament.pointTable.rows.map((row, index) => {
+                        const placePoints = row.placePoints ?? 0;
+                        const totalPoints =
+                          row.totalPoints ?? placePoints + row.kills;
+
+                        return (
+                          <tr
+                            key={row.id || index}
+                            className="bg-white/[0.02] hover:bg-white/[0.05]"
+                          >
+                            <td className="px-3 py-3 font-bold text-cyan-400">
+                              #{row.rank}
+                            </td>
+
+                            <td className="px-3 py-3 font-semibold text-white">
+                              {row.teamName}
+                            </td>
+
+                            <td className="px-3 py-3 text-center text-slate-300">
+                              {placePoints}
+                            </td>
+
+                            <td className="px-3 py-3 text-center text-slate-300">
+                              {row.kills}
+                            </td>
+
+                            <td className="px-3 py-3 text-center">
+                              <span className="inline-flex min-w-12 justify-center rounded-lg bg-emerald-500/10 px-2 py-1 font-black text-emerald-400">
+                                {totalPoints}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="rounded-xl border border-dashed border-slate-700 bg-white/[0.02] p-8 text-center">
+                  <Trophy className="mx-auto mb-3 h-8 w-8 text-slate-600" />
+
+                  <p className="text-sm font-semibold text-slate-300">
+                    Point Table Not Available
+                  </p>
+
+                  <p className="mt-1 text-xs text-slate-500">
+                    No saved point table has been added to this tournament yet.
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
           )}
         </div>
 
