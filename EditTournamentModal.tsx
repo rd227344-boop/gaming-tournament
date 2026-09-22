@@ -580,3 +580,184 @@ return (
   </tr>
 );
 })}
+                                          </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-slate-500 font-mono">
+                Total Teams: {rows.length} • Scoring Matrix: Official {game} scoring system applied.
+              </p>
+            </div>
+          ) : (
+            /* Tournament Details Form */
+            <div className="space-y-4">
+              <div>
+                <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                  Tournament Title *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                    Esports Game Title
+                  </label>
+                  <select
+                    value={game}
+                    onChange={(e) => setGame(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                  >
+                    {COMPETITIVE_GAMES.map((g) => (
+                      <option key={g.id} value={g.name}>
+                        {g.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                    Tournament Status
+                  </label>
+                  <select
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value as any)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                  >
+                    <option value="registration">Registration Open</option>
+                    <option value="live">Live Matches</option>
+                    <option value="upcoming">Upcoming Scrims</option>
+                    <option value="completed">Completed / Archival</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                    Format / Lobby Setup
+                  </label>
+                  <input
+                    type="text"
+                    value={format}
+                    onChange={(e) => setFormat(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                    Server Region
+                  </label>
+                  <select
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value as any)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                  >
+                    <option value="India">India</option>
+                    <option value="Global">Global</option>
+                    <option value="NA">North America</option>
+                    <option value="EU">Europe</option>
+                    <option value="APAC">APAC</option>
+                    <option value="LATAM">LATAM</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                    Prize Pool (INR / Currency)
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={prizePool}
+                    onChange={(e) =>
+                      setPrizePool(Math.max(0, parseInt(e.target.value, 10) || 0))
+                    }
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                    Entry Fee
+                  </label>
+                  <input
+                    type="text"
+                    value={entryFee}
+                    onChange={(e) => setEntryFee(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                  Description / Match Info
+                </label>
+                <textarea
+                  rows={3}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Footer Actions */}
+        <div className="p-4 sm:p-6 border-t border-slate-800 bg-slate-900/60 flex items-center justify-between gap-3">
+          <button
+            type="button"
+            onClick={onClose}
+            className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-mono cursor-pointer border border-slate-800"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            disabled={isSubmitting}
+            onClick={handleSave}
+            id="edit-modal-save-btn"
+            className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 disabled:opacity-50 text-black font-black uppercase text-xs font-['Chakra_Petch'] flex items-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/20 active:scale-95 transition-transform"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Saving Changes...</span>
+              </>
+            ) : (
+              <>
+                <Save className="w-4 h-4" />
+                <span>Save Changes</span>
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Style Gallery Customizer */}
+      <StyleGalleryModal
+        isOpen={isStyleModalOpen}
+        onClose={() => setIsStyleModalOpen(false)}
+        currentStyle={styleConfig}
+        onApplyStyle={(newStyle) => setStyleConfig(newStyle)}
+        previewRows={rows.slice(0, 3)}
+        gameName={game}
+        matchTitle={matchTitle}
+      />
+    </div>
+  );
+};
