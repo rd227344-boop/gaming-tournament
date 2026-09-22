@@ -505,3 +505,78 @@ export const EditTournamentModal: React.FC<EditTournamentModalProps> = ({
   row.placePoints !== undefined
     ? row.placePoints
     : getPlacementPoints(row.rank, game);
+
+const totalPts = placePts + row.kills;
+
+return (
+  <tr key={row.id} className="hover:bg-white/[0.03]">
+    <td className="py-2 px-3">
+      <input
+        type="number"
+        min="1"
+        value={row.rank}
+        onChange={(e) => handleRankChange(row.id, e.target.value)}
+        className="w-16 px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs text-center focus:border-amber-400 focus:outline-none"
+      />
+    </td>
+
+    <td className="py-2 px-3">
+      <input
+        type="text"
+        value={row.teamName}
+        onChange={(e) =>
+          setRows((prev) =>
+            prev.map((r) =>
+              r.id === row.id
+                ? { ...r, teamName: e.target.value }
+                : r
+            )
+          )
+        }
+        className="w-full min-w-[180px] px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs focus:border-amber-400 focus:outline-none"
+      />
+    </td>
+
+    <td className="py-2 px-3 text-center">
+      <input
+        type="number"
+        min="0"
+        value={placePts}
+        onChange={(e) =>
+          handlePlacePointsChange(row.id, e.target.value)
+        }
+        className="w-20 px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs text-center focus:border-amber-400 focus:outline-none"
+      />
+    </td>
+
+    <td className="py-2 px-3 text-center">
+      <input
+        type="number"
+        min="0"
+        value={formatKillsForDisplay(row.kills)}
+        onChange={(e) =>
+          handleKillsChange(row.id, e.target.value)
+        }
+        className="w-20 px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs text-center focus:border-amber-400 focus:outline-none"
+      />
+    </td>
+
+    <td className="py-2 px-3 text-center">
+      <span className="inline-flex min-w-12 justify-center px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-black">
+        {totalPts}
+      </span>
+    </td>
+
+    <td className="py-2 px-3 text-right">
+      <button
+        type="button"
+        onClick={() => handleRemoveTeam(row.id)}
+        className="p-1.5 rounded-lg text-rose-400 hover:text-white hover:bg-rose-500/20 transition-colors"
+        title="Remove team"
+      >
+        <Trash2 className="w-4 h-4" />
+      </button>
+    </td>
+  </tr>
+);
+})}
