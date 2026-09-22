@@ -32,9 +32,7 @@ import {
 import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from './exportUtils';
 import { StyleGalleryModal } from './StyleGalleryModal';
 import { COMPETITIVE_GAMES } from './gamesData';
-import { exportPointTableToCSV, exportPointTableToExcel, exportPointTableToPDF } from './exportUtils';
-import { StyleGalleryModal } from './StyleGalleryModal';
-import { COMPETITIVE_GAMES } from './gamesData';
+
 
 interface EditTournamentModalProps {
   isOpen: boolean;
