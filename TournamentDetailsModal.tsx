@@ -337,6 +337,7 @@ export const TournamentDetailsModal: React.FC<TournamentDetailsModalProps> = ({
                 </div>
               </div>
             </div>
+        )}
                   {activeTab === 'pointTable' && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
